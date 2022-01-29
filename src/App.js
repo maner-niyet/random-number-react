@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
+import Input from "./components/Input";
+import Button from "./components/Button";
 
 export default class App extends Component {
   constructor() {
@@ -44,16 +46,11 @@ export default class App extends Component {
     return (
       <div className="container">
         <h1>{number}</h1>
-        <div>
-          <label htmlFor="">lower value</label>
-          <input type="number" placeholder="enter lower value" onChange={this.getMinVal} value={minVal}/>
-        </div>
-        <div>
-          <label htmlFor="">upper value</label>
-          <input type="number" placeholder="enter upper value" onChange={this.getMaxVal} value={maxVal}/>
-        </div>
-        <button className="generate" onClick={this.generateNum}>generate</button>
-        <button className="clear" onClick={this.clear}>clear</button>
+        <Input labelName="lower value" func={this.getMinVal} value={minVal}/>
+
+        <Input labelName="upper value" func={this.getMaxVal} value={maxVal}/>
+        <Button name="generate" func={this.generateNum}/> 
+        <Button name="clear" func={this.clear}/> 
       </div>
     );
   }
