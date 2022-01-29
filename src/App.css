@@ -16,45 +16,7 @@ h1 {
   font-size: 50px;
 }
 
-label {
-  margin-right: 10px;
-}
 
-input{
-  margin: 10px;
-  padding: 7px;
-  font-size: 16px;
-}
-
-button {
-  font-size: 16px;
-  margin: 20px 10px;
-  padding: 10px 16px;
-  color: white;
-  border-radius: 10px;
-  font-weight: bolder;
-  transition: 0.25s;
-  border: none;
-}
-
-.generate {
-  background-color: #05685e;
-}
-.clear {
-  background-color: #f8722e;
-}
-.generate:hover {
-  color: #05685e;
-  background-color: #fff;
-  box-shadow: 0 0.5em 0.5em -0.4em gray;
-  transform: translateY(-0.25em);
-}
-.clear:hover {
-  color: #f8722e;
-  background-color: #fff;
-  box-shadow: 0 0.5em 0.5em -0.4em gray;
-  transform: translateY(-0.25em);
-}
 
 
 
