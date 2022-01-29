@@ -4,21 +4,55 @@ import "./App.css";
 export default class App extends Component {
   constructor() {
     super();
+    this.state = {
+      minVal: "",
+      maxVal: "",
+      number: 0
+    }
   }
+
+  getMinVal = (e) => {
+    let newMinVal = Number(e.target.value)
+    this.setState({minVal: newMinVal})
+  }
+
+  getMaxVal = (e) => {
+    let newMaxVal = Number(e.target.value)
+    this.setState({maxVal: newMaxVal})
+  }
+
+  generateNum = () => {
+    const {minVal, maxVal} = this.state
+    if (minVal < maxVal) {
+      let randomNum = Math.floor(Math.random() * (maxVal - minVal + 1) + minVal)
+      this.setState({ number: randomNum})
+    } else {
+      alert("invalid input")
+    }
+  }
+
+  clear = () => {
+    this.setState({
+      minVal: "",
+      maxVal: "",
+      number: 0
+    })
+  }
+
   render() {
     return (
       <div className="container">
-        <h1>0</h1>
+        <h1>{this.state.number}</h1>
         <div>
           <label htmlFor="">lower value</label>
-          <input type="number" placeholder="enter lower value"/>
+          <input type="number" placeholder="enter lower value" onChange={this.getMinVal} value={this.state.minVal}/>
         </div>
         <div>
           <label htmlFor="">upper value</label>
-          <input type="number" placeholder="enter upper value"/>
+          <input type="number" placeholder="enter upper value" onChange={this.getMaxVal} value={this.state.maxVal}/>
         </div>
-        <button className="generate">generate</button>
-        <button className="clear">clear</button>
+        <button className="generate" onClick={this.generateNum}>generate</button>
+        <button className="clear" onClick={this.clear}>clear</button>
       </div>
     );
   }
