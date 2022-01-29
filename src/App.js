@@ -40,16 +40,17 @@ export default class App extends Component {
   }
 
   render() {
+    const { number, minVal, maxVal } = this.state;
     return (
       <div className="container">
-        <h1>{this.state.number}</h1>
+        <h1>{number}</h1>
         <div>
           <label htmlFor="">lower value</label>
-          <input type="number" placeholder="enter lower value" onChange={this.getMinVal} value={this.state.minVal}/>
+          <input type="number" placeholder="enter lower value" onChange={this.getMinVal} value={minVal}/>
         </div>
         <div>
           <label htmlFor="">upper value</label>
-          <input type="number" placeholder="enter upper value" onChange={this.getMaxVal} value={this.state.maxVal}/>
+          <input type="number" placeholder="enter upper value" onChange={this.getMaxVal} value={maxVal}/>
         </div>
         <button className="generate" onClick={this.generateNum}>generate</button>
         <button className="clear" onClick={this.clear}>clear</button>
@@ -57,3 +58,6 @@ export default class App extends Component {
     );
   }
 }
+
+//create Input component pass all necessary data with props
+//create Button component pass all info with props and render dynamically
